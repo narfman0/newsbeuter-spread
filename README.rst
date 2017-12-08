@@ -7,9 +7,7 @@ newsbeuter-spread
 .. image:: https://travis-ci.org/narfman0/newsbeuter-spread.png?branch=master
     :target: https://travis-ci.org/narfman0/newsbeuter-spread
 
-Web frontend for newsbeuter db. Read and mark as read. Reading will roughly follow::
-
-    sqlite3 -csv ~/.newsbeuter/cache.db "SELECT title, datetime(pubDate, 'unixepoch'), url FROM rss_item WHERE unread = 1 ORDER BY pubDate;"
+Web frontend for newsbeuter db. Read content and mark as read. Own yer own data! (he said with pitchfork)
 
 Installation
 ------------
