@@ -29,6 +29,10 @@ Start the server with::
 
 Then navigate to the above url!
 
+You might install gunicorn and run using supervisor. In that case, run with::
+
+    gunicorn newsbeuter_spread.app:app -b 0.0.0.0:5000
+
 Development
 -----------
 

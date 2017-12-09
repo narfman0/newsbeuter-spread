@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template
 
-from .db import DB
+from newsbeuter_spread.db import DB
 
 
 app = Flask(__name__)

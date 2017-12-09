@@ -2,7 +2,7 @@ import os
 import sqlite3
 from os.path import expanduser, join
 
-from .item import Item
+from newsbeuter_spread.item import Item
 
 
 DATABASE_PATH = os.environ.get('NEWSBEUTER_CACHE_PATH', join(expanduser('~'), '.newsbeuter', 'cache.db'))
