@@ -1,9 +1,11 @@
+import os
 import sqlite3
+from os.path import expanduser, join
 
 from .item import Item
 
 
-DATABASE_PATH = './cache.db'
+DATABASE_PATH = os.environ.get('NEWSBEUTER_CACHE_PATH', join(expanduser('~'), '.newsbeuter', 'cache.db'))
 QUERY_UNREAD = """SELECT id, title, datetime(pubDate, 'unixepoch'), url, content, author
         FROM rss_item WHERE unread = 1 ORDER BY pubDate"""
 QUERY_READ = "UPDATE rss_item SET unread = 0 WHERE id = '{}'"
