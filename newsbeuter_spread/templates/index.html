@@ -3,21 +3,33 @@
 {% block content %}
 <div class="columns">
   {% for item in items %}
-  <div class="column col-6 col-xs-12">
+  <div class="item column col-6 col-xs-12">
     <div class="card">
       <div class="card-header">
         <div class="card-title h5">{{ item.title }}</div>
-        <div class="card-subtitle text-gray"><a href="{{ item.url }}">link</a></div>
+        <div class="card-subtitle text-gray">
+          <a href="{{ item.url }}">link</a>
+        </div>
       </div>
       <div class="card-body">{{ item.content|safe }}</div>
       <div class="card-footer">
-        <a href="{{ request.url }}read/{{ item.id }}/">
-          <button class="btn btn-primary">Mark Read</button>
-        </a>
+        <button class="btn btn-primary mark-read-btn" data-id="{{ item.id }}">Mark Read</button>
         <span>at {{ item.pub_date }}</span>
       </div>
     </div>
   </div>
   {% endfor %}
 </div>
+
+<script>
+$(function($){
+  $('.mark-read-btn').on('click', function(e){
+    var itemNode = e.path[3];
+    var id = $(e.currentTarget).data('id');
+    $.post('{{ request.url }}read/' + id + '/', function(response){
+        itemNode.parentNode.removeChild(itemNode);
+    });
+  });
+});
+</script>
 {% endblock %}

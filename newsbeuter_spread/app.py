@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, redirect, render_template, url_for
+from flask import Flask, jsonify, render_template
 
 from .db import DB
 
@@ -13,7 +13,7 @@ def index():
     return render_template('index.html', items=items)
 
 
-@app.route('/read/<id>/')
+@app.route('/read/<id>/', methods=['POST', ])
 def read(id):
     db.mark_read(id)
-    return redirect(url_for('index'))
+    return jsonify({'status': 'success'})
