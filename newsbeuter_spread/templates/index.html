@@ -8,13 +8,15 @@
       <div class="card-header">
         <div class="card-title h5">{{ item.title }}</div>
         <div class="card-subtitle text-gray">
-          <a href="{{ item.url }}">link</a>
+          <div>{{ item.author }}</div>
+          <div>{{ item.pub_date }}</div>
         </div>
       </div>
       <div class="card-body">{{ item.content|safe }}</div>
       <div class="card-footer">
+        <a href="{{ item.url }}">link</a>
+        &nbsp; &nbsp;
         <button class="btn btn-primary mark-read-btn" data-id="{{ item.id }}">Mark Read</button>
-        <span>at {{ item.pub_date }}</span>
       </div>
     </div>
   </div>
