@@ -9,7 +9,7 @@ db = DB()
 
 @app.route('/')
 def index():
-    items = db.get_unread()
+    items = list(db.get_unread())
     return render_template('index.html', items=items)
 
 
