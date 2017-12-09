@@ -30,12 +30,15 @@
       var itemNode = e.path[3];
       var id = $(e.currentTarget).data('id');
       $.post('{{ request.url }}read/' + id + '/', function(response){
-          itemNode.parentNode.removeChild(itemNode);
+        var parent = itemNode.parentNode;
+        parent.removeChild(itemNode);
+        if(parent.childElementCount <= 0)
+          location.reload();
       });
     });
   });
   </script>
   {% else %}
-    <h1>All caught up!</h1>
+    <h1 class="text-center">All caught up!</h1>
   {% endif %}
 {% endblock %}
