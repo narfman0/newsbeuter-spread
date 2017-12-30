@@ -27,8 +27,8 @@
   <script>
   $(function($){
     $('.mark-read-btn').on('click', function(e){
-      var itemNode = e.path[3];
-      var id = $(e.currentTarget).data('id');
+      var itemNode = this.parentNode.parentNode.parentNode;
+      var id = this.dataset.id;
       $.post('{{ request.url }}read/' + id + '/', function(response){
         var parent = itemNode.parentNode;
         parent.removeChild(itemNode);
