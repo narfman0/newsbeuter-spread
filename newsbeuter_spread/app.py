@@ -13,7 +13,7 @@ def index():
     return render_template('index.html', items=items)
 
 
-@app.route('/read/<id>/', methods=['POST', ])
-def read(id):
+@app.route('/api/item/<id>/', methods=['DELETE', ])
+def delete(id):
     db.mark_read(id)
     return jsonify({'status': 'success'})

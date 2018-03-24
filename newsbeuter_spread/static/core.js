@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           location.reload();
       }
       };
-      xhttp.open("POST", location.href + "read/" + id + '/', true);
+      xhttp.open("DELETE", location.href + "api/item/" + id + '/', true);
       xhttp.send();
     });
   }
