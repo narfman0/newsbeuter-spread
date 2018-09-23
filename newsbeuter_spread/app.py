@@ -10,7 +10,7 @@ port = int(os.environ.get("PORT", "5000"))
 app = Flask(__name__)
 app.config["BASIC_AUTH_USERNAME"] = os.environ.get("USERNAME", None)
 app.config["BASIC_AUTH_PASSWORD"] = os.environ.get("PASSWORD", None)
-app.config["BASIC_AUTH_FORCE"] = bool(os.environ.get("AUTH", "False"))
+app.config["BASIC_AUTH_FORCE"] = os.environ.get("AUTH", "False") == "True"
 basic_auth = BasicAuth(app)
 db = DB()
 
