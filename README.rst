@@ -23,8 +23,7 @@ Usage
 
 Start the server with::
 
-    $ export FLASK_APP=newsbeuter_spread/app.py
-    $ flask run
+    $ make run
     * Running on http://127.0.0.1:5000/
 
 Then navigate to the above url!
@@ -32,6 +31,18 @@ Then navigate to the above url!
 You might install gunicorn and run using supervisor. In that case, run with::
 
     gunicorn newsbeuter_spread.app:app -b 0.0.0.0:5000
+
+Configuration
+-------------
+
+We now inlcude support for basic auth. WHile nginx/apache is preferred, we may
+set some environment variables to enable::
+
+    USERNAME=username1
+    PASSWORD=password1
+    AUTH=True
+
+will enable a user `username1` with password `password` to use the app.
 
 Development
 -----------

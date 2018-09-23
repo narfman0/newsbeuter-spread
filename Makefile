@@ -37,6 +37,9 @@ release: clean ## package and upload a release
 	python setup.py sdist upload
 	python setup.py bdist_wheel upload
 
+run:
+	export FLASK_APP=newsbeuter_spread.app && flask run
+
 sdist: clean ## package
 	python setup.py sdist
 	ls -l dist
