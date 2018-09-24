@@ -42,7 +42,27 @@ set some environment variables to enable::
     PASSWORD=password1
     AUTH=True
 
-will enable a user `username1` with password `password` to use the app.
+will enable a user `username1` with password `password1` to use the app.
+
+Example systemd unit file::
+
+    [Unit]
+    Description=newsbeuter-spread
+    After=network.target
+
+    [Service]
+    Type=simple
+    User=narfman0
+    WorkingDirectory=/home/narfman0
+    ExecStart=/bin/gunicorn newsbeuter_spread.app:app -b 0.0.0.0:5000
+    Environment=USERNAME=username1
+    Environment=PASSWORD=password1
+    Environment=AUTH=True
+    Restart=always
+    RestartSec=2
+
+    [Install]
+    WantedBy=multi-user.target
 
 Development
 -----------
