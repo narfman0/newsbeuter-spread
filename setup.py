@@ -21,5 +21,5 @@ setup(
     include_package_data=True,
     zip_safe=True,
     install_requires=["flask", "flask-basicauth"],
-    test_suite="tests/test_newsbeuter_spread",
+    test_suite="tests",
 )
