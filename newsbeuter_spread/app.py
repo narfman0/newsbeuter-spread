@@ -21,13 +21,13 @@ def index():
     return render_template("index.html", items=items)
 
 
-@app.route("/api/item/")
+@app.route("/api/items/")
 def items():
     items = [item.__dict__ for item in db.get_unread()]
     return jsonify({"status": "success", "items": items})
 
 
-@app.route("/api/item/<id>/", methods=["DELETE"])
+@app.route("/api/items/<id>/", methods=["DELETE"])
 def delete(id):
     db.mark_read(id)
     return jsonify({"status": "success"})
