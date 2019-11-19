@@ -43,3 +43,5 @@ run:
 sdist: clean ## package
 	python setup.py sdist
 	ls -l dist
+
+r: run
