@@ -2,6 +2,7 @@ import os
 
 from flask import Flask, jsonify, render_template
 from flask_basicauth import BasicAuth
+from flask_cors import CORS
 
 from newsbeuter_spread.db import DB
 
@@ -11,6 +12,7 @@ app = Flask(__name__)
 app.config["BASIC_AUTH_USERNAME"] = os.environ.get("USERNAME", None)
 app.config["BASIC_AUTH_PASSWORD"] = os.environ.get("PASSWORD", None)
 app.config["BASIC_AUTH_FORCE"] = os.environ.get("AUTH", "False") == "True"
+CORS(app)
 basic_auth = BasicAuth(app)
 db = DB()
 

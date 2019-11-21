@@ -20,6 +20,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=True,
-    install_requires=["flask", "flask-basicauth"],
+    install_requires=["flask", "flask-basicauth", "flask-cors"],
     test_suite="tests",
 )
